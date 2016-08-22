@@ -51,7 +51,16 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1
+  
+
+ def search  
+    @name = params["search"]["name"]  
+    @tasks = Task.where("name like '%#{params["search"]["name"]}%'")  
+    render :index  
+  end  
+
+
+# DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
