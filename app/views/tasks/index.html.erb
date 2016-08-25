@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>タスク一覧</h1>
+<br><font face="ＭＳ Ｐ明朝" size="6" color="#0000cd">タスク一覧</font><br>
 
+<br>
 <%= form_tag({:action => "search"}) do %> 
   <%= collection_select 'search', 'user', User.all, :username, :username, {selected: @search_user,include_blank: "全員"} %>  
   <%= collection_select 'search', 'category', Category.all, :categoryname, :categoryname, {selected: @search_category,include_blank: "全カテゴリー"} %> 
@@ -16,10 +17,10 @@
 <table>
   <thead>
     <tr>
-      <th>日付</th>
-      <th>カテゴリー</th>
-      <th>予定内容</th>
       <th>チェック</th>
+      <th>日付</th>
+      <th>予定内容</th>
+      <th>カテゴリー</th>
       <th>ユーザーID</th>
       <th colspan="3"></th>
     </tr>
@@ -28,10 +29,10 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.due_date %></td>
-        <td><%= task.category_id %></td>
-        <td><%= task.name %></td>
         <td><%= task.done %></td>
+        <td><%= task.due_date %></td>
+        <td><%= task.name %></td>
+        <td><%= task.category_id %></td>
         <td><%= task.user_id %></td>
         <td><%= link_to '詳細', task %></td>
         <td><%= link_to '更新', edit_task_path(task) %></td>
