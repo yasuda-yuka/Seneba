@@ -2,6 +2,11 @@
 
 <br><font face="ＭＳ Ｐ明朝" size="6" color="#0000cd">ユーザー一覧</font><br>
 
+
+  <%= text_field_tag "search[name]",@search_value %>  
+  <%= submit_tag "検索" %>  
+  <%= link_to "リセット", tasks_path%>  
+
 <br>
 <table>
   <thead>
